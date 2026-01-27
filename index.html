@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Kitchen Nusantara</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #c8dc7d;
+      color: #333;
+    }
+    header {
+      background-color: #ff5722;
+      color: rgb(188, 211, 142);
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #ff5722;
+    }
+    section {
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #ff5722;
+      border-bottom: 2px solid #ff5722;
+      padding-bottom: 5px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .menu-item {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .main-content {
+  margin-left: 220px; /* agar tidak tertutup sidebar */
+  padding: 20px;
+}
+
+    /* Modal Style */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #e64a19;
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cloud Kitchen Nusantara</h1>
+  <p>Makanan Berkualitas • Harga Terjangkau • Pesan Online</p>
+</header>
+
+<nav>
+  <a href="#Home">home</a>
+  <a href="#menu">Menu</a>
+  <a href="#tentang">Tentang Kami</a>
+  <a href="#operasional">Operasional</a>
+  <a href="#kontak">Kontak</a>
+</nav>
+
+<section id="Home">
+  <h2>Home</h2>
+  <!-- Tambahkan gambar di sini --> 
+   <img src="cloud kitchen.jpg" alt="Cloud Kitchen Nusantara" style="width:100%; max-height:400px; object-fit:cover; border-radius:10px; margin-bottom:20px;">
+   <p><strong>Cloud Kitchen Nusantara</strong> adalah usaha kuliner berbasis online yang menyediakan makanan berkualitas, higienis, dan terjangkau dengan pelayanan cepat melalui aplikasi pesan antar.</p>
+    <h3>Visi</h3> 
+    <p>Menjadi cloud kitchen terpercaya yang menghadirkan makanan lezat dengan harga bersahabat.</p>
+     <h3>Misi</h3> 
+     <ul> <li>Menyediakan makanan higienis dan berkualitas.</li> <li>Mengutamakan kepuasan pelanggan.</li> 
+        <li>Mengembangkan menu sesuai kebutuhan pasar.</li> </ul> 
+        <h3>Highlight Produk</h3> <p>Kami menawarkan <em>Rice Bowl Ayam Geprek</em>, <em>Mie Goreng Spesial</em>, serta paket hemat untuk pelajar dan pekerja.</p> </section>
+</section>
+<section id="menu">
+  <h2>Menu Kami</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="rice bowl ayam geprek.jpg" alt="Rice Bowl Ayam Geprek" style="width:100%; border-radius:8px;">
+      <h3>Rice Bowl Ayam Geprek</h3>
+      <p>Nasi hangat + ayam geprek pedas.</p>
+      <button onclick="openForm('Rice Bowl Ayam Geprek')">Pesan Sekarang</button>
+    </div>
+    <div class="menu-item">
+      <img src="rice ayam teriyaki.jpg" alt="Rice Bowl Ayam Teriyaki" style="width:100%; border-radius:8px;">
+      <h3>Rice Bowl Ayam Teriyaki</h3>
+      <p>Nasi hangat + ayam teriyaki manis gurih.</p>
+      <button onclick="openForm('Rice Bowl Ayam Teriyaki')">Pesan Sekarang</button>
+    </div>
+    <div class="menu-item">
+      <img src="mie goreng.jpg" alt="Mie Goreng Spesial" style="width:100%; border-radius:8px;">
+      <h3>Mie Goreng Spesial</h3>
+      <p>Mie goreng dengan bumbu racikan khas.</p>
+      <button onclick="openForm('Mie Goreng Spesial')">Pesan Sekarang</button>
+    </div>
+    <div class="menu-item">
+      <img src="mie ayam bakso.jpg" alt="Mie Ayam Bakso" style="width:100%; border-radius:8px;">
+      <h3>Mie Ayam Bakso</h3>
+      <p>Mie ayam dengan tambahan bakso kenyal.</p>
+      <button onclick="openForm('Mie Ayam Bakso')">Pesan Sekarang</button>
+    </div>
+    <div class="menu-item">
+      <img src="tahu crispy.jpeg" alt="Tahu Crispy" style="width:100%; border-radius:8px;">
+      <h3>Tahu Crispy</h3>
+      <p>Camilan tahu goreng renyah.</p>
+      <button onclick="openForm('Tahu Crispy')">Pesan Sekarang</button>
+    </div>
+    <div class="menu-item">
+      <img src="kentang goreng.jpg" alt="Kentang Goreng" style="width:100%; border-radius:8px;">
+      <h3>Kentang Goreng</h3>
+      <p>Kentang goreng golden crispy.</p>
+      <button onclick="openForm('Kentang Goreng')">Pesan Sekarang</button>
+    </div>
+    <div class="menu-item">
+      <img src="teh es manis.jpg" alt="Es Teh Manis" style="width:100%; border-radius:8px;">
+      <h3>Es Teh Manis</h3>
+      <p>Minuman segar dalam kemasan higienis.</p>
+      <button onclick="openForm('Es Teh Manis')">Pesan Sekarang</button>
+    </div>
+    <div class="menu-item">
+      <img src="paket rice bowl dan teh es.jpg" alt="Paket Hemat Pelajar" style="width:100%; border-radius:8px;">
+      <h3>Paket Hemat Pelajar</h3>
+      <p>Rice Bowl + Es Teh dengan harga ekonomis.</p>
+      <button onclick="openForm('Paket Hemat Pelajar')">Pesan Sekarang</button>
+    </div>
+  </div>
+</section>
+<!-- Modal Form -->
+<div id="orderForm" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeForm()">&times;</span>
+    <h2>Formulir Pemesanan</h2>
+    <form id="orderFormContent" onsubmit="sendWhatsApp(event)">
+      <label>Menu yang dipilih:</label>
+      <input type="text" id="menuSelected" readonly><br><br>
+
+      <label>Nama Lengkap:</label>
+      <input type="text" id="namaLengkap" required><br><br>
+
+      <label>Alamat Lengkap:</label>
+      <textarea id="alamatLengkap" required></textarea><br><br>
+
+      <label>Email:</label>
+      <input type="email" id="email" required><br><br>
+
+      <label>Metode Pembayaran:</label>
+      <select id="metodePembayaran" required>
+        <option value="">--Pilih--</option>
+        <option value="Transfer Bank">Transfer Bank</option>
+        <option value="COD">Cash on Delivery (COD)</option>
+        <option value="E-Wallet">E-Wallet (OVO, GoPay, Dana)</option>
+      </select><br><br>
+
+      <button type="submit">Kirim Pesan</button>
+      <button type="button" onclick="closeForm()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<section id="tentang">
+  <h2>Tentang Kami</h2>
+  <p><strong>Cloud Kitchen Nusantara</strong> berdiri sejak 2026 dengan fokus pada layanan pesan antar makanan berbasis online. Kami berkomitmen menghadirkan makanan berkualitas, higienis, dan terjangkau untuk semua pelanggan.</p>
+
+  <h3>Deskripsi Menu</h3>
+  <p>Kami menyediakan berbagai pilihan menu yang cocok untuk pelajar, pekerja, dan masyarakat umum:</p>
+  <ul>
+    <li><strong>Rice Bowl Ayam Geprek</strong> – nasi hangat dengan ayam geprek pedas khas Nusantara.</li>
+    <li><strong>Rice Bowl Ayam Teriyaki</strong> – ayam teriyaki manis gurih dengan cita rasa modern.</li>
+    <li><strong>Mie Goreng Spesial</strong> – mie goreng dengan bumbu racikan sendiri.</li>
+    <li><strong>Mie Ayam Bakso</strong> – mie ayam dengan tambahan bakso kenyal.</li>
+    <li><strong>Tahu Crispy & Kentang Goreng</strong> – camilan renyah sebagai pendamping.</li>
+    <li><strong>Es Teh Manis</strong> – minuman segar dalam kemasan higienis.</li>
+    <li><strong>Paket Hemat Pelajar</strong> – kombinasi menu dengan harga ekonomis.</li>
+  </ul>
+
+  <h3>Keunggulan Kami</h3>
+  <p>Selain menu yang variatif, kami juga mengutamakan:</p>
+  <ul>
+    <li>Kebersihan dapur dan kemasan food grade.</li>
+    <li>Pelayanan cepat melalui aplikasi GoFood, GrabFood, dan ShopeeFood.</li>
+    <li>Harga terjangkau dengan kualitas rasa konsisten.</li>
+  </ul>
+  <h3>Lokasi Kami</h3>
+   <p>Anda dapat menemukan kami di alamat berikut:</p> 
+   <p><strong>Jl. Bukit Apit No. 10, Kecamatan Guguak, Kabupaten Lima Puluh Kota</strong></p> 
+   <!-- Embed Google Maps --> 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d8757.520612736183!2d100.50568654566422!3d-0.17323910413872431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sbukit%20apit%20no%2010%2Ckecamantan%20guguak%20kabupaten%20lima%20puluh%20kota!5e1!3m2!1sid!2sus!4v1769519157400!5m2!1sid!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    height="400" 
+    style="border:0; 
+    border-radius:10px;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade"> 
+
+  </iframe>
+</section>
+
+<section id="operasional">
+  <h2>Rencana Operasional</h2>
+  <ul>
+    <li><strong>Sistem Usaha:</strong> Dapur produksi tanpa makan di tempat.</li>
+    <li><strong>Pemesanan:</strong> GoFood, GrabFood, ShopeeFood.</li>
+    <li><strong>Jam Operasional:</strong> 10.00 – 22.00 WIB.</li>
+    <li><strong>Tenaga Kerja:</strong> Pemilik + 1 karyawan dapur.</li>
+    <li><strong>Pengemasan:</strong> Food grade, higienis.</li>
+  </ul>
+  <h3>Biaya Operasional / Bulan</h3>
+  <ul>
+    <li>Bahan Baku: Rp3.000.000</li>
+    <li>Gas & Listrik: Rp500.000</li>
+    <li>Air & Kebersihan: Rp200.000</li>
+    <li>Kemasan: Rp500.000</li>
+    <li>Gaji Karyawan: Rp1.500.000</li>
+    <li>Internet & Aplikasi: Rp200.000</li>
+    <li>Komisi Platform: Rp600.000</li>
+    <li>Lain-lain: Rp300.000</li>
+    <li><strong>Total: Rp6.800.000</strong></li>
+  </ul>
+</section>
+
+<section id="kontak">
+  <h2>Kontak Kami</h2>
+  <p>📍 Alamat: Jl. Bukit Apit No. 10, Kecamatan Guguak, Kabupaten Lima Puluh Kota</p>
+  <p>📞 Telepon/WhatsApp: 082391533257</p>
+  <p>📧 Email: cloudkitchen.nusantara@gmail.com</p>
+  <p>Ikuti kami di media sosial untuk promo terbaru!</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Cloud Kitchen Nusantara. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
+
+<script>
+function openForm(menuName) {
+  document.getElementById("orderForm").style.display = "block";
+  document.getElementById("menuSelected").value = menuName;
+}
+
+function closeForm() {
+  document.getElementById("orderForm").style.display = "none";
+}
+
+function sendWhatsApp(event) {
+  event.preventDefault(); // cegah reload halaman
+
+  const menu = document.getElementById("menuSelected").value;
+  const nama = document.getElementById("namaLengkap").value;
+  const alamat = document.getElementById("alamatLengkap").value;
+  const email = document.getElementById("email").value;
+  const pembayaran = document.getElementById("metodePembayaran").value;
+
+  // Nomor WhatsApp tujuan (format internasional tanpa +)
+  const nomorWA = "6282391533257";  // ganti dengan nomor Anda
+
+  // Pesan otomatis
+  const pesan = `Halo, saya mau pesan:\nMenu: ${menu}\nNama: ${nama}\nAlamat: ${alamat}\nEmail: ${email}\nMetode Pembayaran: ${pembayaran}`;
+
+  // Link WhatsApp
+  const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+
+  // Buka WhatsApp
+  window.open(url, "_blank");
+}
+</script>
